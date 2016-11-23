@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html ng-app="hCardApp">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>hCard Builder</title>
+    <link rel="stylesheet" type="text/css" href="./css/app.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <script src="./js/hCard.js"></script>
+</head>
+
+<body ng-controller="hCardController">
+    <div class="Grid Grid--gutters Grid--cols-2">
+        <div class="Grid-cell">
+            <div class="cardPanel left">
+                <h3>hCard Builder</h3>
+                <form id="hcard-form" action="/" method="post">
+                    <div class="sectionTitle">Personal Details</div>
+                    <div class="Grid Grid--gutters Grid--nested">
+                        <div class="Grid-cell">
+                            <div class="inputWrapper">
+                                <label for="givenName">Given Name</label>
+                                <input type="text" value="" ng-model="givenName" name="givenName">
+                            </div>
+                        </div>
+                        <div class="Grid-cell">
+                            <div class="inputWrapper">
+                                <label for="surname">Surname</label>
+                                <input type="text" value="" ng-model="surname" name="surname">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Grid Grid--gutters Grid--nested">
+                        <div class="Grid-cell">
+                            <div class="inputWrapper">
+                                <label for="email">email</label>
+                                <input type="text" value="" ng-model="cardEmail" name="email">
+                            </div>
+                        </div>
+                        <div class="Grid-cell">
+                            <div class="inputWrapper">
+                                <label for="phone">phone</label>
+                                <input type="text" value="" ng-model="phone" name="phone">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sectionTitle secondSection">Address</div>
+                    <div class="Grid Grid--gutters Grid--nested">
+                        <div class="Grid-cell">
+                            <div class="inputWrapper">
+                                <label for="houseName">House name OR #</label>
+                                <input type="text" value="" ng-model="houseName" name="houseName">
+                            </div>
+                        </div>
+                        <div class="Grid-cell">
+                            <div class="inputWrapper">
+                                <label for="street">Street</label>
+                                <input type="text" value="" ng-model="street" name="street">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Grid Grid--gutters Grid--nested">
+                        <div class="Grid-cell">
+                            <div class="inputWrapper">
+                                <label for="suburb">Suburb</label>
+                                <input type="text" value="" ng-model="suburb" name="suburb">
+                            </div>
+                        </div>
+                        <div class="Grid-cell">
+                            <div class="inputWrapper">
+                                <label for="state">state</label>
+                                <input type="text" value="" ng-model="state" name="state">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Grid Grid--gutters Grid--nested">
+                        <div class="Grid-cell">
+                            <div class="inputWrapper">
+                                <label for="postcode">Postcode</label>
+                                <input type="text" value="" ng-model="postcode" name="postcode">
+                            </div>
+                        </div>
+                        <div class="Grid-cell">
+                            <div class="inputWrapper">
+                                <label for="country">country</label>
+                                <input type="text" value="" ng-model="country" name="country">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Grid Grid--gutters Grid--nested">
+                        <div class="Grid-cell">
+                            <div class="inputWrapper">
+                                <button type="button" ng-click="handleFileUpload($event)" id="avatarBtn">
+                                    <input type="file" id="fileBtn">Upload Avatar</button>
+                            </div>
+                        </div>
+                        <div class="Grid-cell">
+                            <div class="inputWrapper">
+                                <button type="button" id="createBtn" ng-click="createHCard()">Create hCard</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="Grid-cell">
+            <div class="cardPanel right">
+                <div class="hCard">
+                    <div class="cardTitle">
+                        hCard Preview
+                    </div>
+                    <div class="cardHeader">
+                        <span>{{givenName}}</span>
+                        <span>{{surname}}</span>
+                        <div id="avatar"><img id="userAvatar" src="./images/avatar.gif" width="100" height="100"></div>
+                    </div>
+                    <div class="cardBody">
+                        <div class="info-container">
+                            <div class="cardFieldTitle topRows">email</div>
+                            <div class="contentTxt">{{cardEmail}}</div>
+                        </div>
+                        <div class="spacer"></div>
+                        <div class="info-container">
+                            <div class="cardFieldTitle topRows">Phone</div>
+                            <div class="contentTxt">{{phone}}</div>
+                        </div>
+                        <div class="spacer"></div>
+                        <div class="info-container">
+                            <div class="cardFieldTitle topRows">Address</div>
+                            <div class="contentTxt">{{houseName}} &nbsp</div>
+                            <div class="contentTxt">{{street}}</div>
+                        </div>
+                        <div class="spacer"></div>
+                        <div class="info-container">
+                            <div class="cardFieldTitle topRows spacer">Space</div>
+                            <div class="contentTxt">{{suburb}}</div>
+                            <div class="contentTxt">{{state || state.length > 0 ? ', ' + state : ''}}</div>
+                        </div>
+                        <div class="spacer"></div>
+                        <div class="Grid hCard-Grid--gutters Grid--nested">
+                            <div class="Grid-cell">
+                                <div class="inputWrapper">
+                                    <div class="info-container">
+                                        <div class="cardFieldTitle">postcode</div>
+                                        <div class="contentTxt postcode">{{postcode}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="Grid-cell">
+                                <div class="inputWrapper">
+                                    <div class="info-container last">
+                                        <div class="cardFieldTitle">country</div>
+                                        <div class="contentTxt">{{country}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

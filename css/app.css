@@ -1,0 +1,213 @@
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased; }
+
+body {
+  background: #e6e8eb;
+  font: 400 12px/1.625 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  height: 100%; }
+
+#hcard-form input[type="text"],
+#hcard-form input[type="email"] {
+  width: 100%;
+  border: 1px solid #CCC;
+  background: #FFF;
+  margin: 0 0 5px;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 20px; }
+
+#hcard-form label {
+  color: #384f61;
+  display: block;
+  margin: 5px 0;
+  font-weight: 900;
+  text-transform: uppercase; }
+
+.sectionTitle {
+  border-bottom: 1px solid #D6D6D6;
+  text-transform: uppercase;
+  color: #D6D6D6;
+  font-size: 11px;
+  margin: 0 0 10px 15px;
+  width: 95%; }
+
+.sectionTitle.secondSection {
+  padding-top: 20px; }
+
+.cardPanel.right {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.hCard {
+  background: #fff;
+  min-height: 360px;
+  width: 80%;
+  min-width: 400px;
+  -webkit-box-shadow: 0 4px 4px -4px #000;
+  box-shadow: 0 4px 4px -4px #000; }
+
+.info-container {
+  border-bottom: 1px solid #D6D6D6;
+  display: flex;
+  flex: 1; }
+
+.cardFieldTitle {
+  margin-right: 40px;
+  text-transform: uppercase; }
+
+.cardFieldTitle {
+  width: 40px; }
+
+.cardFieldTitle.topRows.spacer {
+  opacity: 0; }
+
+input,
+label {
+  display: block; }
+
+.cardTitle {
+  text-transform: uppercase;
+  color: #BFBFBF;
+  font-size: 16px;
+  text-align: right;
+  padding-bottom: 10px;
+  background: #e6e8eb; }
+
+.cardHeader {
+  background-color: #384f61;
+  color: #FFF;
+  font-weight: bold;
+  font-size: 2em;
+  padding: 30px;
+  min-height: 100px; }
+
+.cardHeader #avatar {
+  float: right;
+  position: relative;
+  bottom: 20px;
+  left: 20px; }
+
+.cardBody {
+  background: #fff;
+  padding: 40px;
+  color: #384f61; }
+
+button {
+  width: 100%;
+  border-radius: 5px;
+  padding: 10px;
+  color: #fff;
+  margin: 20px 0;
+  font-size: 20px; }
+
+#avatarBtn {
+  background: #758d9c; }
+
+#createBtn {
+  background: #2c93c7; }
+
+#avatarBtn:hover {
+  background: #547080; }
+
+#createBtn:hover {
+  background: #1d87b5; }
+
+div.spacer {
+  min-height: 1.5em; }
+
+/** Start Styling the grid **/
+.Grid {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap; }
+
+.u-textCenter {
+  text-align: center; }
+
+.Grid-cell {
+  flex: 1; }
+
+.cardPanel {
+  padding: .8em 1em 0;
+  transition: background-color 0.3s ease; }
+  .cardPanel:after {
+    content: "";
+    display: block;
+    margin-top: .8em;
+    height: 1px; }
+
+.cardPanel.left {
+  background: #fff; }
+
+.cardPanel.left > h3 {
+  color: #384e61;
+  font-size: 30px;
+  margin-left: 15px; }
+
+.inputWrapper {
+  padding: .8em 0 0 1em; }
+
+.Grid--gutters {
+  margin-left: -1em;
+  margin-right: 1em; }
+  .Grid--gutters .Grid-cell {
+    padding-left: 1em; }
+
+.hCard-Grid--gutters {
+  margin-left: -2em;
+  margin-right: 0; }
+
+.Grid--cols-2 > .Grid-cell {
+  flex: 0 0 100%; }
+
+.Grid--nested > .Grid-cell {
+  flex: 0 0 100%; }
+
+#fileBtn {
+  opacity: 0;
+  position: absolute; }
+
+.nameWrapper {
+  max-width: 300px; }
+
+/* For Larger screens more than 48em */
+@media (min-width: 58em) {
+  .Grid--cols-2 > .Grid-cell {
+    flex: 1; }
+
+  .Grid--gutters.Grid--nested .Grid-cell:first-of-type .cardPanel {
+    margin-right: 10px; } }
+@media (min-width: 35em) {
+  .Grid--nested > .Grid-cell {
+    flex: 1; }
+
+  .info-container.last {
+    margin-left: -2em; } }
+@media (max-width: 35em) {
+  .info-container.last {
+    margin-top: 1em; }
+
+  .hCard {
+    margin-top: 20px;
+    min-width: 350px; }
+
+  button {
+    margin-top: 0px; }
+
+  .cardHeader {
+    font-size: 1.5em;
+    padding: 35px; }
+
+  .cardHeader #avatar {
+    bottom: 25px;
+    left: 25px; } }
+/** End Styling the grid **/
+
+/*# sourceMappingURL=app.css.map */
